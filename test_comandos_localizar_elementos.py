@@ -20,5 +20,18 @@ password.send_keys("secret_sauce")
 # click()
 
 btn_login.click()
-time.sleep(5)
 
+# text
+
+products_titles = browser.find_elements(By.XPATH, "//span[@class='title']")
+
+for title in products_titles:
+    print(title.text)
+    assert title.text == "Products"
+
+# get_attribute()
+img_backpack = browser.find_element(By.XPATH, "//*[@id='item_4_img_link']/img")
+alt_attribute = img_backpack.get_attribute("alt")
+
+print(alt_attribute)
+assert alt_attribute == "Sauce Labs Backpack"
